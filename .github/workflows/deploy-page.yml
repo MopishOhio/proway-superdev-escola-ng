@@ -30,7 +30,7 @@ jobs:
         run: npm run build --ommit=dev
       - name: Deploy to gh pages
         run: |
-          npx angular-cli-ghpages --dir=dist/escola-ng
+          npx angular-cli-ghpages --dir=dist/escola-ng/browser
         env:
           CI: true
           GH_TOKEN: ${{ secrets.TOKEN_TO_DEPLOY }}
