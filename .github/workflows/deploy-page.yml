@@ -31,7 +31,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: ng build --configuration production --base-href "\/proway-superdev-escola-ng\/"
+        run: |
+          npm install -g @angular/cli
+          ng build --configuration production --base-href "\/proway-superdev-escola-ng\/"
       - name: Deploy to gh pages
         run: |
           git config --global user.name "Francisco Lucas Janesch Lange Sens"
