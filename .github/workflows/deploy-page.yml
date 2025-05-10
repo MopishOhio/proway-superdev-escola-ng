@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: npm run build --ommit=dev
+        run: npm run build --ommit=dev --base-href \"/proway-superdev-escola-ng/\"
       - name: Deploy to gh pages
         run: |
           git config --global user.name "Francisco Lucas Janesch Lange Sens"
