@@ -37,7 +37,11 @@ jobs:
           name: build-artifact
           path: ./dist
       - name: list
-        run: ls -la
+        run: |
+          ls -la
+          ls -la dist
+          ls -la dist/escola-ng
+          ls -la dist/escola-ng/browser
       - name: Configurar GIT
         run:  |
           git config --global user.name "Francisco Lucas Janesch Lange Sens"
