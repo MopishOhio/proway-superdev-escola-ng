@@ -36,12 +36,16 @@ jobs:
         with:
           name: build-artifact
           path: ./dist
+      - name: list
+        run: ls -la
       - name: Configurar GIT
         run:  |
           git config --global user.name "Francisco Lucas Janesch Lange Sens"
           git config --global user.email "francisco.lucas.sens@gmail.com"
       - name: Deploy to gh pages
         run: |
+          git config --global user.name "Francisco Lucas Janesch Lange Sens"
+          git config --global user.email "francisco.lucas.sens@gmail.com"
           npx angular-cli-ghpages --dir=dist/escola-ng/browser --no-silent
         env:
           CI: true
