@@ -31,6 +31,7 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Baixar artefato do build
         uses: actions/download-artifact@v4
         with:
@@ -41,16 +42,13 @@ jobs:
           ls -la
           ls -la dist
           ls -la dist/escola-ng
-          ls -la dist/escola-ng/browser
+          ls -la dist/escola-ng
       - name: Configurar GIT
         run:  |
           git config --global user.name "Francisco Lucas Janesch Lange Sens"
           git config --global user.email "francisco.lucas.sens@gmail.com"
       - name: Deploy to gh pages
-        run: |
-          git config --global user.name "Francisco Lucas Janesch Lange Sens"
-          git config --global user.email "francisco.lucas.sens@gmail.com"
-          npx angular-cli-ghpages --dir=dist/escola-ng/browser --no-silent
+        run: npx angular-cli-ghpages --dir=dist/escola-ng/browser --no-silent
         env:
           CI: true
           GH_TOKEN: ${{ secrets.TOKEN_TO_DEPLOY }}
